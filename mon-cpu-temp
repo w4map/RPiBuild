@@ -1,0 +1,8 @@
+# 1) create this file, named mon-cpu-temp, make executible
+# 2) create file cpu-temp-log in the build-info directory
+# 3) create crontab */15 * * * * /home/pi/Documents/build-info/mon-cpu-temp
+
+timestamp=`date +%Y-%m-%d-%T`
+temp=`vcgencmd measure_temp`
+echo "$timestamp $temp" >> /home/pi/Documents/build-info/cpu-temp-log
+

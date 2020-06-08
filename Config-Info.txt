@@ -1,0 +1,49 @@
+#################################################################
+[CONFIG FILES TO MODIFY]
+/etc/login.defs add:
+# If useradd should create home directories for users
+# by default. This option is overridden with the -m
+# flag on useradd command line.
+#
+CREATE_HOME	yes
+#
+
+Verify /etc/hostname contains same hostname as /etc/hosts line 127.0.0.1
+
+#################################################################
+[CREATE .bash_aliases FILE]
+touch ~/.bash_aliases
+add the following lines:
+alias updatenow="sudo apt update"
+alias upgradenow="sudo apt -y upgrade"
+alias ll="ls -l --color=auto"
+alias cll='clear; ls -l --color=auto'
+switchtogui='sudo systemctl set-default graphical.target;sudo reboot'
+switchtocli='sudo systemctl set-default multi-user.target;sudo reboot'
+
+save the file and execute "source ~/.bash_aliases" from cmd line
+
+
+#################################################################
+[PACKAGES TO INSTALL]
+at   		(provides at, atd, batch)
+vim	
+acl 		(installs setfacl and getfacl)
+sysstat 	(includes iostat & pidstat tools)
+ioping
+lshw
+tcpdump
+iftop
+procinfo  	(installs lsdev)
+network-manager (installs nmcli and other tools)
+quota 		(installs tools for managing disk quotas. must edit fstab for relevant file system, adding options usrquota and/or grpquota)
+matchbox-keyboard (for pi 7" touchscreen)For U-blox7 GPS Dongle: gpsd, gpsd-clients, python-gps, chrony
+ntfs-3g  	(supports NTFS on Linux)
+mlocate 	(installs locate, updatedb tools; creates /etc/updatedb.conf, /etc/lib/mlocate/mlocate.db. Good reference: https://www.tecmint.com/install-locate-command-to-find-files-in-centos/)
+dnsutils 	(installs dig, nslookup, nsupdate)
+iperf    	(provides iperf client and server to test network bandwidth)
+mtr      	(provides mtr, My TraceRoute, command, stats on ping/route)
+#################################################################
+[SUDO TAKING LONG TIME PROBLEM]
+https://serverfault.com/questions/38114/why-does-sudo-command-take-long-to-execute
+#################################################################

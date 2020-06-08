@@ -1,0 +1,2 @@
+*/15 * * * *  /home/pi/Documents/build-info/mon-cpu-temp
+0    0 * * *  sudo /usr/bin/updatedb >> /home/pi/cronlog
